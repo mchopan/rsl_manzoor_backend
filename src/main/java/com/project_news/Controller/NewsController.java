@@ -31,10 +31,18 @@ public class NewsController {
     public News getNewsById(@PathVariable("id") Long newsId){
         return newsService.getNewsById(newsId);
 }
+// Delete By Id
+    @DeleteMapping("/delete/{id}")
+    public  String deleteNewsById(@PathVariable("id") Long newsId){
+        newsService.deleteNews(newsId);
+        return "Department Deleted Successfully";
+    }
 
-
-
-
+//Update News By Id
+    @PutMapping("/update/{id}")
+    public News updateNews(@PathVariable("id") Long newsId,@RequestBody News news){
+        return newsService.updateNews(newsId,news);
+    }
 
 
 }

@@ -11,4 +11,8 @@ public interface NewsService {
     public  ArrayList<News> getNews();
 
     public News getNewsById(Long newsId);
+
+    void deleteNews(Long newsId);
+
+    News updateNews(Long newsId, News news);
 }
