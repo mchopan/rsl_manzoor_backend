@@ -8,4 +8,10 @@ public interface LocationService {
     Location addLocation(Location location);
 
     ArrayList<Location> getLocation();
+
+    Location getLocationById(Long locationId);
+
+    void deleteLocation(Long locationId);
+
+    Location updateLocation(Long locationId, Location location);
 }
