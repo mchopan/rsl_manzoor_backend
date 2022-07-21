@@ -3,7 +3,6 @@ package com.project_news.Controller;
 import com.project_news.Entity.News;
 import com.project_news.Service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ public class NewsController {
     private  NewsService newsService;
 
 //    Post News
-    @PostMapping("/save")
+    @PostMapping("/addNews")
     public News saveNews(@RequestBody News news){
         return newsService.saveNews(news);
     }
@@ -35,10 +34,10 @@ public class NewsController {
     @DeleteMapping("/delete/{id}")
     public  String deleteNewsById(@PathVariable("id") Long newsId){
         newsService.deleteNews(newsId);
-        return "Department Deleted Successfully";
+        return "News Deleted Successfully";
     }
 
-//Update News By Id
+//Update News By id
     @PutMapping("/update/{id}")
     public News updateNews(@PathVariable("id") Long newsId,@RequestBody News news){
         return newsService.updateNews(newsId,news);

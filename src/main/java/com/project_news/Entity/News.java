@@ -3,10 +3,8 @@ package com.project_news.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -14,10 +12,18 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class News {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(
+                name = "news_seq",
+                sequenceName = "news_seq",
+                allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "news_seq"
+    )
     private Long newsId;
     private  String newsTitle;
     private String newsDescription;
-    private Long categoryId;
-    private Long locationId;
+    private Long category;
+    private Long location;
 }

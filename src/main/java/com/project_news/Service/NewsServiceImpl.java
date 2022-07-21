@@ -24,7 +24,7 @@ public class NewsServiceImpl implements NewsService  {
     public ArrayList<News> getNews() {
         return (ArrayList<News>) newsRepository.findAll();
     }
-//Fetch News By Id
+//Fetch News By id
     @Override
     public News getNewsById(Long newsId) {
         return newsRepository.findById(newsId).get();
