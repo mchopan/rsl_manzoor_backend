@@ -12,7 +12,16 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class Category {
     @Id
-    private Long categoryId;
+    @SequenceGenerator(
+            name = "cate_seq",
+            sequenceName = "cate_seq",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "cate_seq"
+    )
+    private Long id;
     @Column
     private String categoryName;
 }

@@ -10,10 +10,22 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
+@Table(name = "location" , schema = "news")
 public class Location {
 
     @Id
-    private Long locationId;
-    @Column
+    @SequenceGenerator(
+            name = "location_seq",
+            sequenceName = "location_seq",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "location_seq"
+    )
+    private Long id;
+
+    @Column(name="Location", nullable=false, length=512)
     private String locationName;
 }

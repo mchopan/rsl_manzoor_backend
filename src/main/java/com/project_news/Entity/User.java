@@ -10,19 +10,31 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
+@Table(name = "user", schema = "news")
 public class User {
     @Id
     @SequenceGenerator(
-            name="userSeq",
-            sequenceName = "userSeq",
+            name="user_seq",
+            sequenceName = "user_seq",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "userSeq"
+            generator = "user_seq"
     )
-    private Long userId;
+    private Long id;
+
+    @Column(name="UserName", nullable=false, length=512)
     private String userName;
+
+    @Column(name="Password", nullable=false, length=512)
     private String password;
-    private Long locationId;
+
+    @Column(name="Location", nullable=false, length=512)
+    private Integer locationId;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "locationId")
+    private Location location;
 }

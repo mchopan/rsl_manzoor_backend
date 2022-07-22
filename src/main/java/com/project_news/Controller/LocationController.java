@@ -40,7 +40,7 @@ public class LocationController {
 
     //UPDATE LOCATION BY ID
     @PutMapping("/updateLocation/{id}")
-    public Location updateLocation(@PathVariable("id") Long locationId,@RequestBody Location location){
-        return locationService.updateLocation(locationId,location);
+    public Location updateLocation(@PathVariable("id") Long locationId, @RequestBody Location location){
+        return locationService.updateLocation(locationId, location);
     }
 }

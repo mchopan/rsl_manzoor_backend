@@ -10,17 +10,33 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
+@Table(name = "liked", schema = "news")
 public class Liked {
     @Id
     @SequenceGenerator(
-            name="likedSeq",
-            sequenceName = "likedSeq",
+            name="liked_seq",
+            sequenceName = "liked_seq",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "likedSeq"
+            generator = "liked_seq"
     )
-    private Long newsId;
-    private Long userId;
+    private Long id;
+
+
+    @Column(name="News", nullable=false, length=512)
+    private Integer newsId;
+
+    @Column(name="User", nullable=false, length=512)
+    private Integer userId;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "newsId")
+    private News news;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "userId")
+    private  User user;
 }

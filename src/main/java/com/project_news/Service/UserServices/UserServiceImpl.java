@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Optional;
+import java.util.Objects;
+
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -32,5 +33,17 @@ public class UserServiceImpl implements UserService{
     @Override
     public void deleteUserById(Long userId) {
         userRepository.deleteById(userId);
+    }
+
+    @Override
+    public User updateUserById(Long userId, User user) {
+        User editUser = userRepository.findById(userId).get();
+        if(Objects.nonNull(user.getUserName()) && !" ".equalsIgnoreCase(user.getUserName())){
+            editUser.setUserName(user.getUserName());
+        }
+        if (Objects.nonNull(user.getPassword()) && !" ".equalsIgnoreCase(user.getPassword())){
+            editUser.setPassword(user.getPassword());
+        }
+        return userRepository.save(editUser);
     }
 }

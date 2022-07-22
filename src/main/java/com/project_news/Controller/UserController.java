@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 @RestController
 public class UserController {
@@ -37,6 +36,13 @@ public class UserController {
     public String deleteUserById(@PathVariable("id") Long userId){
         userService.deleteUserById(userId);
         return "User Deleted Successfully";
+    }
+
+//    UPDATE USER
+
+    @PutMapping("/updateUser/{id}")
+    public User updateUserById(@PathVariable("id") Long userId, @RequestBody User user){
+        return userService.updateUserById(userId,user);
     }
 
 }

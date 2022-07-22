@@ -21,7 +21,19 @@ public class LikedCategory {
             strategy = GenerationType.SEQUENCE,
             generator = "likedCateSeq"
     )
-    private Long likedId;
-    private Long categoryId;
-    private Long userId;
+    private Long id;
+
+    @Column
+    private Integer categoryId;
+
+    @Column
+    private Integer userId;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "categoryId")
+    private Category category;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "userId")
+    private User user;
 }
