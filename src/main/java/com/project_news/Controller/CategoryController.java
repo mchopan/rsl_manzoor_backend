@@ -1,7 +1,7 @@
 package com.project_news.Controller;
 
 import com.project_news.Entity.Category;
-import com.project_news.Service.CategoryService;
+import com.project_news.Service.CategoryServices.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

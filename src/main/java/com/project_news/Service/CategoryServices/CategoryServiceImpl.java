@@ -1,4 +1,4 @@
-package com.project_news.Service;
+package com.project_news.Service.CategoryServices;
 
 import com.project_news.Entity.Category;
 import com.project_news.Repository.CategoryRepository;

@@ -1,4 +1,4 @@
-package com.project_news.Service;
+package com.project_news.Service.NewsServices;
 
 import com.project_news.Entity.News;
 
