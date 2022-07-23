@@ -23,11 +23,6 @@ public class LikedCategory {
     )
     private Long id;
 
-    @Column
-    private Integer categoryId;
-
-    @Column
-    private Integer userId;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "categoryId")

@@ -25,16 +25,13 @@ public class User {
     )
     private Long id;
 
-    @Column(name="UserName", nullable=false, length=512)
+    @Column
     private String userName;
 
-    @Column(name="Password", nullable=false, length=512)
+    @Column
     private String password;
 
-    @Column(name="Location", nullable=false, length=512)
-    private Integer locationId;
-
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "locationId")
     private Location location;
 }

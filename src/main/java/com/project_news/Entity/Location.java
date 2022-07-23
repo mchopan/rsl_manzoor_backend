@@ -26,6 +26,6 @@ public class Location {
     )
     private Long id;
 
-    @Column(name="Location", nullable=false, length=512)
+    @Column
     private String locationName;
 }

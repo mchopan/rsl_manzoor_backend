@@ -25,25 +25,19 @@ public class News {
     )
     private Long id;
 
-    @Column(name="Title", nullable=false, length=512)
+    @Column
     private  String newsTitle;
 
-    @Column(name="Description", nullable=false,  length=512)
+    @Column
     private String newsDescription;
 
-    @Column(name="Category", nullable=false, length=512)
+    @Column
     private Integer categoryId;
 
-    @Column(name="Location", nullable=false, length=512)
-    private Integer locationId;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "categoryId" ,insertable = false, updatable = false )
-    private Category category;
 
-
-    @OneToOne(cascade = CascadeType.ALL )
+    @OneToOne(cascade = CascadeType.MERGE )
     @JoinColumn(name = "locationId")
     private Location location;
 

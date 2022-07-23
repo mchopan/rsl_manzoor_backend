@@ -26,17 +26,11 @@ public class Liked {
     private Long id;
 
 
-    @Column(name="News", nullable=false, length=512)
+    @Column
     private Integer newsId;
 
-    @Column(name="User", nullable=false, length=512)
-    private Integer userId;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "newsId")
-    private News news;
-
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "userId")
     private  User user;
 }
