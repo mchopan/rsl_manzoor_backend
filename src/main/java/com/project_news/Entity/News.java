@@ -35,26 +35,11 @@ public class News {
     private Integer categoryId;
 
 
-
-
     @OneToOne(cascade = CascadeType.MERGE )
     @JoinColumn(name = "locationId")
     private Location location;
 
-}
+    @Column
+    private String newsDetails;
 
-//    @Column(name="DESC", nullable=false, length=512)
-//    public String getDescription() { return description; }
-//
-//     Example 2:
-//
-//@Column(name="DESC",
-//        columnDefinition="CLOB NOT NULL",
-//        table="EMP_DETAIL")
-//@Lob
-//public String getDescription() { return description; }
-//
-//        Example 3:
-//
-//@Column(name="ORDER_COST", updatable=false, precision=12, scale=2)
-//public BigDecimal getCost() { return cost; }
+}

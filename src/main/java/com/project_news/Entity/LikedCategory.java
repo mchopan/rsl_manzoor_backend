@@ -24,11 +24,14 @@ public class LikedCategory {
     private Long id;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "categoryId")
-    private Category category;
+    @Column
+    private Integer categoryId;
 
-    @OneToOne(cascade = CascadeType.ALL)
+//    @OneToOne(cascade = CascadeType.MERGE)
+//    @JoinColumn(name = "categoryId")
+//    private Category category;
+
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "userId")
     private User user;
 }
